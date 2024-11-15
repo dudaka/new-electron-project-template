@@ -14,6 +14,11 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
+  ipcMain.handle('ping', async (event, arg) => {
+    console.log('ping');
+    return 'pong';
+  });
+
   createWindow();
 
   app.on('activate', () => {
